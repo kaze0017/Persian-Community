@@ -9,7 +9,7 @@ import StoreProvider from "./StoreProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Persian Community",
   description:
     "Introduces the Persian Business, Communities, and Events in Ottawa",
@@ -22,20 +22,20 @@ export const metadata = {
       url: "https://www.linkedin.com/in/keivankazemi/",
     },
   ],
+  // themeColor: [{ media: "(prefers-color-scheme: dark)", color: "#fff" }],
   icons: [
     { rel: "apple-touch-icon", url: "icons/icon-128.png" },
     { rel: "icon", url: "icons/icon-128.png" },
   ],
- 
 };
-export const viewport: Viewport = {
-  themeColor: "black",
-  colorScheme: "light dark",
-  initialScale: 1,
-  width: "device-width",
-  viewportFit: "cover",
-  minimumScale: 1,
-};
+// export const viewport: Viewport = {
+//   themeColor: "black",
+//   colorScheme: "light dark",
+//   initialScale: 1,
+//   width: "device-width",
+//   viewportFit: "cover",
+//   minimumScale: 1,
+// };
 
 export default function RootLayout({
   children,
@@ -44,13 +44,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
+      {/* <head>
         <title>{metadata.title}</title>
         <meta name="description" content={metadata.description} />
         <meta name="generator" content={metadata.generator} />
         <link rel="manifest" href={metadata.manifest} />
         <meta name="keywords" content={metadata.keywords.join(", ")} />
-
+        {metadata.themeColor.map(({ media, color }, index) => (
+          <meta key={index} name="theme-color" media={media} content={color} />
+        ))}
         {metadata.authors.map(({ name, url }, index) => (
           <meta
             key={index}
@@ -63,7 +65,7 @@ export default function RootLayout({
         {metadata.icons.map(({ rel, url }, index) => (
           <link key={index} rel={rel} href={url} />
         ))}
-      </head>
+      </head> */}
       <body className={inter.className}>
         <AppRouterCacheProvider options={{ key: "css" }}>
           <StoreProvider>
