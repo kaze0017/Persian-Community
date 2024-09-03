@@ -1,10 +1,12 @@
 // store/store.ts
 import { configureStore } from "@reduxjs/toolkit";
-import counterReducer from "@/lib/features/counter";
+import mainNavSlice from "./navs/mainNavSlice";
+import businessesSlice from "./businesses/businessesSlice";
 
 export const store = configureStore({
   reducer: {
-    counter: counterReducer,
+    mainNav: mainNavSlice,
+    businesses: businessesSlice,
   },
 });
 

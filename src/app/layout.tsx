@@ -6,6 +6,7 @@ import { AppRouterCacheProvider } from "@mui/material-nextjs/v14-appRouter";
 import { ThemeProvider } from "@mui/material/styles";
 import theme from "../theme";
 import StoreProvider from "./StoreProvider";
+import MobileNav from "./components/navs/mainNavs/MobileNav";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -44,32 +45,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      {/* <head>
-        <title>{metadata.title}</title>
-        <meta name="description" content={metadata.description} />
-        <meta name="generator" content={metadata.generator} />
-        <link rel="manifest" href={metadata.manifest} />
-        <meta name="keywords" content={metadata.keywords.join(", ")} />
-        {metadata.themeColor.map(({ media, color }, index) => (
-          <meta key={index} name="theme-color" media={media} content={color} />
-        ))}
-        {metadata.authors.map(({ name, url }, index) => (
-          <meta
-            key={index}
-            name="author"
-            content={name}
-            {...(url && { href: url })}
-          />
-        ))}
-        <meta name="viewport" content={Object.entries(viewport).join(", ")} />
-        {metadata.icons.map(({ rel, url }, index) => (
-          <link key={index} rel={rel} href={url} />
-        ))}
-      </head> */}
       <body className={inter.className}>
         <AppRouterCacheProvider options={{ key: "css" }}>
           <StoreProvider>
-            <ThemeProvider theme={theme}>{children}</ThemeProvider>
+            <ThemeProvider theme={theme}>
+              {children}
+              {/* <MobileNav /> */}
+              </ThemeProvider>
           </StoreProvider>
         </AppRouterCacheProvider>
       </body>
