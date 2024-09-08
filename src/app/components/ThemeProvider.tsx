@@ -20,7 +20,7 @@ const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({
     dispatch(fetchTheme());
     setTheme(getTheme(themeMode));
     console.log("themeMode", themeMode);
-  }, [themeMode]);
+  }, [themeMode, dispatch]);
   // Create the theme based on the mode
 
   return <MUIThemeProvider theme={theme}>{children}</MUIThemeProvider>;
