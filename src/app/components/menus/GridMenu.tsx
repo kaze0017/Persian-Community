@@ -12,7 +12,7 @@ export default function GridMenu({ categories }: GridMenuProps) {
     <Box sx={{ flexGrow: 1 }}>
       <Grid container spacing={2}>
         {categories.map((category, index) => (
-          <Grid size={8}>
+          <Grid size={8} key={index}>
             <Paper sx={{ height: 75, width: 75 }}>{category}</Paper>
           </Grid>
         ))}
