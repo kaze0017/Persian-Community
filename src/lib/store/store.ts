@@ -1,14 +1,20 @@
-// store/store.ts
 import { configureStore } from "@reduxjs/toolkit";
-import mainNavSlice from "./navs/mainNavSlice";
-import businessesSlice from "./businesses/businessesSlice";
+import mainNavReducer from "./navs/mainNavSlice";
+import businessesReducer from "./businesses/businessesSlice";
+import authReducer from "./auth/authSlice";
+import profileReducer from "./userData/profileSlice";
 
-export const store = configureStore({
-  reducer: {
-    mainNav: mainNavSlice,
-    businesses: businessesSlice,
-  },
-});
+export const makeStore = () => {
+  return configureStore({
+    reducer: {
+      mainNav: mainNavReducer,
+      businesses: businessesReducer,
+      auth: authReducer,
+      profile: profileReducer,
+    },
+  });
+};
 
-export type RootState = ReturnType<typeof store.getState>;
-export type AppDispatch = typeof store.dispatch;
+export type AppStore = ReturnType<typeof makeStore>;
+export type RootState = ReturnType<AppStore["getState"]>;
+export type AppDispatch = AppStore["dispatch"];

@@ -1,13 +1,7 @@
 "use client";
-
-import Container from "@mui/material/Container";
-import Box from "@mui/material/Box";
-import { useEffect } from "react";
 import MobileNav from "./components/navs/mainNavs/MobileNav";
-import Typography from "@mui/material/Typography";
 import TabPanel from "@mui/lab/TabPanel";
 import TabContext from "@mui/lab/TabContext";
-
 import { useSelector } from "react-redux";
 import { RootState } from "@/lib/store/store";
 

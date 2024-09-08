@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import "./globals.css";
+// import "./globals.css";
+import CssBaseline from "@mui/material/CssBaseline";
+
 import type { Viewport } from "next";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v14-appRouter";
-import { ThemeProvider } from "@mui/material/styles";
-import theme from "../theme";
+import ThemeProvider from "./components/ThemeProvider";
+
 import StoreProvider from "./StoreProvider";
-import MobileNav from "./components/navs/mainNavs/MobileNav";
+import { Paper } from "@mui/material";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -48,10 +50,10 @@ export default function RootLayout({
       <body className={inter.className}>
         <AppRouterCacheProvider options={{ key: "css" }}>
           <StoreProvider>
-            <ThemeProvider theme={theme}>
-              {children}
+            <ThemeProvider>
+              <Paper>{children}</Paper>
               {/* <MobileNav /> */}
-              </ThemeProvider>
+            </ThemeProvider>
           </StoreProvider>
         </AppRouterCacheProvider>
       </body>

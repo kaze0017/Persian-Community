@@ -1,5 +1,21 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { BusinessType } from "@/lib/types/BusinessType";
+
+
+export const fetchBusinesses = createAsyncThunk("businesses/fetchBusinesses", async () => {
+  const response = await fetch("http://localhost:3000/businesses");
+  const data = await response.json();
+  return data;
+});
+
+export const fetchBusinessesCategories = createAsyncThunk(
+  "businesses/fetchBusinessesCategories",
+  async () => {
+    const response = await fetch("http://localhost:3000/businesses/categories");
+    const data = await response.json();
+    return data;
+  }
+);
 
 interface BusinessesState {
   businessesCategories: string[];
